@@ -22,9 +22,13 @@ const Index = () => {
           <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
         ) : (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ 
+              duration: 1.2,
+              ease: [0.43, 0.13, 0.23, 0.96],
+              staggerChildren: 0.1
+            }}
           >
             <TopNavbar />
             <BrandNavbar />
