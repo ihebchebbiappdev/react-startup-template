@@ -1,30 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import TopNavbar from '../components/TopNavbar';
 import BrandNavbar from '../components/BrandNavbar';
 import MainNavbar from '../components/MainNavbar';
-import BrandIntro from '../components/BrandIntro';
 import Hero from '../components/Hero';
 import Products from '../components/Products';
 import Men from '../components/Men';
+import BrandIntro from '../components/BrandIntro';
 import NewCollection from '../components/NewCollection';
 import BrandLocation from '../components/BrandLocation';
 import Footer from '../components/Footer';
+import LoadingScreen from '../components/LoadingScreen';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <div className="min-h-screen relative">
-      <TopNavbar />
-      <BrandNavbar />
-      <MainNavbar />
-      <Hero />
-      <Products />
-      <Men />
-      <BrandIntro />
-      <NewCollection />
-      <BrandLocation />
-      <Footer />
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <TopNavbar />
+            <BrandNavbar />
+            <MainNavbar />
+            <Hero />
+            <Products />
+            <Men />
+            <BrandIntro />
+            <NewCollection />
+            <BrandLocation />
+            <Footer />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* WhatsApp Button with Controlled Ping Effect and Mobile Responsiveness */}
+      {/* WhatsApp Button */}
       <div className="fixed bottom-8 right-8 z-50 scale-100 md:scale-105">
         {/* Pulsing Background Effect with 7s interval */}
         <div className="absolute inset-0 rounded-full bg-[#471818]/40 animate-[ping_7s_ease-in-out_infinite]"></div>
