@@ -9,7 +9,7 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const duration = 3840; // 6.4 seconds reduced by 40% = 3.84 seconds
+    const duration = 3840; // 3.84 seconds
     const steps = 30;
     const interval = duration / steps;
 
