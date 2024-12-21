@@ -6,17 +6,17 @@ const Footer = () => {
     <footer className="bg-[#471818] text-white py-8 lg:py-10 px-4 lg:px-16 text-[1rem] lg:text-[1.1rem] font-['WomanFontBold']">
       {/* Newsletter Section */}
       <div className="mb-7">
-        <h3 className="text-[1.1rem] lg:text-[1.25rem] font-['WomanFontBold'] mb-3.5">NEWSLETTER</h3>
-        <p className="mb-5.5 leading-relaxed">
+        <h3 className="text-[1.1rem] text-left lg:text-[1.25rem] font-['WomanFontBold'] mb-3.5">NEWSLETTER</h3>
+        <p className="mb-5.5  text-left leading-relaxed">
           Inscrivez-vous pour recevoir par e-mail des mises à jour <br className="hidden lg:block" />
           sur les dernières collections, campagnes et vidéos de Fiori.
         </p>
         <br></br>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-0">
           <input
             type="email"
             placeholder="Email"
-            className="w-full max-w-[300px] px-3 py-3 bg-white/20 border border-red-500 rounded
+            className="w-full sm:w-80 mr-0 sm:mr-3.5 px-3 py-3 bg-white/20 border border-red-500 rounded
                      text-white placeholder-white/70 outline-none backdrop-blur-sm
                      shadow-md transition-all duration-300
                      focus:border-[#ff5e5e] focus:shadow-[#ff5e5e]/50 focus:shadow-lg

@@ -3,16 +3,16 @@ import {
   NavigationMenu,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import NavMenuItem from './navigation/NavMenuItem';
-import SubMenuSection from './navigation/SubMenuSection';
+import NavMenuItemProduct from '../navigation/NavMenuItemProduct';
+import SubMenuSection from '../navigation/SubMenuSection';
 
-const MainNavbar = () => {
+const MainNavbarProduct = () => {
   return (
-    <div className="absolute w-full z-20 text-center lg:top-[160px] top-[120px] px-4 font-['WomanFont']">
+    <div className=" w-full z-20  bg-[#EFEDED] text-center lg:top-[160px] top-[120px] px-4 font-['WomanFont']">
       <NavigationMenu className="mx-auto max-w-screen-2xl">
         <NavigationMenuList className="flex flex-col lg:flex-row lg:gap-14 gap-6 items-center">
           
-         <NavMenuItem title="Le monde Fiori" image="/Articles/1.png">
+         <NavMenuItemProduct title="Le monde Fiori" image="/Articles/1.png">
   <div className="grid grid-cols-2 gap-3">
     <SubMenuSection
       title="Collections"
@@ -45,9 +45,9 @@ const MainNavbar = () => {
       ]}
     />
   </div>
-</NavMenuItem>
+</NavMenuItemProduct>
 
-<NavMenuItem title="L'univers Cadeaux" image="/Articles/2.png">
+<NavMenuItemProduct title="L'univers Cadeaux" image="/Articles/2.png">
   <div className="grid grid-cols-2 gap-3">
     <SubMenuSection
       title="Pack Composé"
@@ -90,9 +90,9 @@ const MainNavbar = () => {
       ]}
     />
   </div>
-</NavMenuItem>
+</NavMenuItemProduct>
 
-<NavMenuItem title="Le prêt à porter" image="/Articles/3.png">
+<NavMenuItemProduct title="Le prêt à porter" image="/Articles/3.png">
   <div className="grid grid-cols-2 gap-3">
     <SubMenuSection
       title="Homme"
@@ -145,9 +145,9 @@ const MainNavbar = () => {
       ]}
     />
   </div>
-</NavMenuItem>
+</NavMenuItemProduct>
 
-<NavMenuItem title="Accessoires" image="/Articles/4.png">
+<NavMenuItemProduct title="Accessoires" image="/Articles/4.png">
   <div className="grid grid-cols-2 gap-3">
     <SubMenuSection
       title="Homme"
@@ -212,9 +212,9 @@ const MainNavbar = () => {
       ]}
     />
   </div>
-</NavMenuItem>
+</NavMenuItemProduct>
 
-<NavMenuItem title="Le sur mesure" image="/Articles/4.png">
+<NavMenuItemProduct title="Le sur mesure" image="/Articles/4.png">
   <div className="grid grid-cols-2 gap-3">
     <SubMenuSection
       title="Homme"
@@ -279,9 +279,9 @@ const MainNavbar = () => {
       ]}
     />
   </div>
-</NavMenuItem>
+</NavMenuItemProduct>
 
-<NavMenuItem title="Outlet" image="/NewCollection/Together We Feast.png">
+<NavMenuItemProduct title="Outlet" image="/NewCollection/Together We Feast.png">
   <div className="grid grid-cols-2 gap-3">
     <SubMenuSection
       title="Homme"
@@ -334,7 +334,7 @@ const MainNavbar = () => {
       ]}
     />
   </div>
-</NavMenuItem>
+</NavMenuItemProduct>
 
         </NavigationMenuList>
       </NavigationMenu>
@@ -342,4 +342,4 @@ const MainNavbar = () => {
   );
 };
 
-export default MainNavbar;
+export default MainNavbarProduct;

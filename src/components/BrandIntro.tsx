@@ -7,7 +7,7 @@ const BrandIntro = () => {
         <h1 className="text-center text-[#591C1C] text-4xl sm:text-5xl md:text-6xl my-20 font-['WomanFontBold'] mx-auto w-[90%] sm:w-full">
           Le monde de Fiori
         </h1>
-     
+
         <div className="flex flex-col md:flex-row gap-8 mx-4 sm:mx-8 my-12">
           <div className="flex-1">
             <img
@@ -16,8 +16,8 @@ const BrandIntro = () => {
               className="w-full h-auto object-cover min-h-[800px]"
             />
           </div>
-       
-          <div className="flex-1 bg-[#591C1C] text-white px-6 sm:px-14 py-20 flex flex-col justify-between">
+
+          <div className="flex-1 bg-white text-[#591C1C] px-6 sm:px-14 py-20 flex flex-col justify-between rounded-lg shadow-lg">
             <div className="space-y-12">
               <p className="leading-loose text-xl font-['WomanFontBold']">
                 Fiori, fondée en 2014, est une marque tunisienne qui s'intègre dans l'univers du prêt-à-porter et maroquinerie de haute gamme pour homme.
@@ -33,7 +33,7 @@ const BrandIntro = () => {
             </div>
          
             <div className="mt-24">
-              <h2 className="text-white text-5xl font-['WomanFontBold']">
+              <h2 className="text-[#591C1C] text-5xl font-['WomanFontBold']">
                 En savoir plus !
               </h2>
             </div>

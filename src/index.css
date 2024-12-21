@@ -61,13 +61,21 @@
   @apply bg-gradient-to-b from-white/15 via-transparent to-white/15 backdrop-blur-sm border-t border-b border-white/20 shadow-lg;
 }
 
-.nav-link {
-  @apply text-white uppercase font-medium hover:text-accent transition-colors duration-300;
+.glass-effectFeedback {
+  @apply bg-gradient-to-b from-white/5 via-transparent to-white/5 backdrop-blur-sm border-t border-b border-white/5 shadow-lg rounded-lg px-8 py-4;
 }
+
 
 .product-box {
   @apply bg-secondary p-5 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
 }
+
+.nav-item:hover {
+  /* Remove any hover styles */
+  background-color: transparent;
+  color: inherit;  /* This will ensure the text color remains the same */
+}
+
 
 @media (max-width: 1024px) {
   .nav-link {
@@ -82,4 +90,44 @@
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+@layer base {
+  /* Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 12px;  /* Adjust width as needed */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* Light background for the scrollbar track */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #700100;  /* Red color for the scrollbar thumb */
+    border-radius: 10px;  /* Optional: adds rounded corners to the scrollbar thumb */
+    border: 3px solid #f1f1f1;  /* Optional: adds a border around the thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #b40000;  /* Darker red when hovering over the thumb */
+  }
+
+  
+}
+
+/* Google Translate Styles */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+.goog-te-menu-value {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.skiptranslate {
+  display: none !important;
 }

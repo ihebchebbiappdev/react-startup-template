@@ -37,9 +37,7 @@ const Products = () => {
         <h1 className="text-2xl md:text-3xl lg:text-4xl text-center text-[#700100] font-['WomanFontBold'] mb-8">
           Nouveautés
         </h1>
-
         <Categories />
-      
         <div className="relative w-full" ref={emblaRef}>
           <Carousel className="w-full">
             <CarouselContent>

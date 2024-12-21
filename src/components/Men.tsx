@@ -25,17 +25,20 @@ const Men = () => {
         Mens Essential
       </h1>
      
-      <div className="flex flex-wrap gap-4 justify-center max-w-[1536px] mx-auto">
+      <div className="flex flex-wrap gap-6 justify-center max-w-[1800px] mx-auto px-4">
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative w-[300px] h-[600px] overflow-hidden rounded-3xl shadow-lg
-                     transition-transform duration-300 hover:scale-105"
+            className="relative w-full sm:w-[340px] h-[600px] overflow-hidden rounded-3xl shadow-lg
+                     transition-transform duration-300 hover:scale-105 mb-6 sm:mb-0"
           >
             <img
               src={image.src}
               alt={image.alt}
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              fetchPriority={index === 0 ? "high" : "low"}
             />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
                         text-center py-[2.2rem] px-[6.5rem] rounded-lg">

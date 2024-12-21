@@ -9,38 +9,44 @@ const NewCollection = () => {
           <div className="space-y-4 md:space-y-6">
             <h2 className="text-3xl md:text-4xl font-['WomanFontBold']">New Collection</h2>
            
-            <div className="w-full h-40 md:h-60 overflow-hidden">
-              <img
-                src="NewCollection/3.png"
-                alt="Brown leather belt"
-                className="w-full h-full object-cover"
-              />
-            </div>
-           
-            <div className="grid grid-cols-3 gap-2 md:gap-4">
-              <div className="h-60 md:h-80 overflow-hidden">
-                <img
-                  src="NewCollection/2.png"
-                  alt="Suit detail"
-                  className="w-full h-full object-cover"
-                />
+            {/* Center-aligned images */}
+            <div className="flex flex-col items-center space-y-4">
+              <div className="flex space-x-2 md:space-x-4">
+                <div className="h-60 md:h-80 overflow-hidden">
+                  <img
+                    src="NewCollection/4.png"
+                    alt="Inside label"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="h-60 md:h-80 overflow-hidden">
+                  <img
+                    src="NewCollection/1.png"
+                    alt="Suit gesture"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <div className="h-60 md:h-80 overflow-hidden">
-                <img
-                  src="NewCollection/4.png"
-                  alt="Inside label"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="h-60 md:h-80 overflow-hidden">
-                <img
-                  src="NewCollection/1.png"
-                  alt="Suit gesture"
-                  className="w-full h-full object-cover"
-                />
+
+              <div className="flex space-x-2 md:space-x-4">
+                <div className="h-60 md:h-80 overflow-hidden">
+                  <img
+                    src="NewCollection/4.png"
+                    alt="Inside label"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="h-60 md:h-80 overflow-hidden">
+                  <img
+                    src="NewCollection/1.png"
+                    alt="Suit gesture"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
 
+            {/* Center-aligned button */}
             <div className="flex justify-center mt-4 md:mt-6">
               <Button
                 variant="outline"
@@ -51,6 +57,7 @@ const NewCollection = () => {
             </div>
           </div>
 
+          {/* Full-width image */}
           <div className="hidden lg:block">
             <div className="h-full">
               <img
