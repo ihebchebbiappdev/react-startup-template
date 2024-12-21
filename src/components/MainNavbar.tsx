@@ -10,8 +10,7 @@ const MainNavbar = () => {
   return (
     <div className="absolute w-full z-20 text-center lg:top-[160px] top-[120px] px-4 font-['WomanFont']">
       <NavigationMenu className="mx-auto max-w-screen-2xl">
-        <NavigationMenuList className="flex flex-col lg:flex-row lg:gap-14 gap-6 items-center">
-          
+        <NavigationMenuList className="flex flex-col lg:flex-row lg:gap-8 gap-4 items-center">
          <NavMenuItem title="Le monde Fiori" image="/Articles/1.png">
   <div className="grid grid-cols-2 gap-3">
     <SubMenuSection
@@ -335,7 +334,6 @@ const MainNavbar = () => {
     />
   </div>
 </NavMenuItem>
-
         </NavigationMenuList>
       </NavigationMenu>
     </div>
