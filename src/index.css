@@ -71,9 +71,8 @@
 }
 
 .nav-item:hover {
-  /* Remove any hover styles */
   background-color: transparent;
-  color: inherit;  /* This will ensure the text color remains the same */
+  color: black;  /* Change hover color to black */
 }
 
 
