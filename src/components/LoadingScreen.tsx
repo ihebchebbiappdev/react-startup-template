@@ -1,43 +1,74 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
 }
 
-const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
+const LoadingScreen = memo(({ onLoadingComplete }: LoadingScreenProps) => {
   const [count, setCount] = useState(0);
   const [phase, setPhase] = useState<'loading' | 'transition' | 'complete'>('loading');
   const [showCircle, setShowCircle] = useState(true);
 
-  useEffect(() => {
-    const duration = 2500;
-    const steps = 30;
-    const interval = duration / steps;
-
-    const timer = setInterval(() => {
-      setCount(prev => {
-        if (prev >= steps) {
-          clearInterval(timer);
-          handleLoadingComplete();
-          return steps;
-        }
-        return prev + 1;
-      });
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleLoadingComplete = () => {
+  const handleLoadingComplete = useCallback(() => {
     setShowCircle(false);
     setTimeout(() => {
       setPhase('transition');
       setTimeout(() => {
         setPhase('complete');
         onLoadingComplete();
-      }, 1000); // Increased delay for door animation
+      }, 1000);
     }, 500);
+  }, [onLoadingComplete]);
+
+  useEffect(() => {
+    const duration = 2500;
+    const steps = 30;
+    const interval = duration / steps;
+    let startTime: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const step = Math.floor((progress / duration) * steps);
+      
+      if (step <= steps) {
+        setCount(step);
+        if (step < steps) {
+          requestAnimationFrame(animate);
+        } else {
+          handleLoadingComplete();
+        }
+      }
+    };
+
+    requestAnimationFrame(animate);
+
+    return () => {
+      startTime = 0;
+    };
+  }, [handleLoadingComplete]);
+
+  const circleVariants = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.3, ease: "easeOut" }
+    },
+    exit: { 
+      opacity: 0, 
+      scale: 0.8,
+      transition: { duration: 0.3, ease: "easeIn" }
+    }
+  };
+
+  const doorVariants = {
+    initial: { x: 0 },
+    animate: { 
+      x: '-100%',
+      transition: { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
+    }
   };
 
   return (
@@ -45,7 +76,6 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
       <AnimatePresence mode="wait">
         {phase !== 'complete' && (
           <>
-            {/* Background Layer */}
             <motion.div
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
@@ -54,12 +84,12 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
               className="fixed inset-0 z-40"
               style={{ backgroundColor: '#591C1C' }}
             >
-              {/* Loading Circle */}
               {showCircle && (
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  variants={circleVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
                   className="fixed inset-0 z-50 flex items-center justify-center"
                 >
                   <div className="relative">
@@ -68,10 +98,11 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
                       <motion.svg
                         className="w-16 h-16"
                         viewBox="0 0 100 100"
+                        initial={{ rotate: 0 }}
                         animate={{ rotate: 360 }}
                         transition={{
                           duration: 15,
-                          ease: 'linear',
+                          ease: "linear",
                           repeat: Infinity,
                         }}
                       >
@@ -108,25 +139,26 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
                       </motion.svg>
 
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-white tracking-wider">
+                        <motion.span 
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.2 }}
+                          className="text-2xl font-bold text-white tracking-wider"
+                        >
                           {count}
-                        </span>
+                        </motion.span>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               )}
 
-              {/* Split Door Animation */}
               {phase === 'transition' && (
                 <>
                   <motion.div
-                    initial={{ x: 0 }}
-                    animate={{ x: '-100%' }}
-                    transition={{
-                      duration: 1,
-                      ease: [0.43, 0.13, 0.23, 0.96],
-                    }}
+                    variants={doorVariants}
+                    initial="initial"
+                    animate="animate"
                     className="fixed inset-0 z-50 w-1/2 bg-gradient-to-r from-[#591C1C] to-[#4a1717]"
                     style={{
                       boxShadow: '10px 0 20px rgba(0,0,0,0.3)',
@@ -140,6 +172,7 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
                     />
                   </motion.div>
                   <motion.div
+                    variants={doorVariants}
                     initial={{ x: 0 }}
                     animate={{ x: '100%' }}
                     transition={{
@@ -166,6 +199,8 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
       </AnimatePresence>
     </div>
   );
-};
+});
+
+LoadingScreen.displayName = 'LoadingScreen';
 
 export default LoadingScreen;
