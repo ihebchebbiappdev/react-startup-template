@@ -17,12 +17,12 @@ const MainNavbar = () => {
       title="Collections"
       items={[
         {
-          href: "/category/le-monde-fiori/printemps",
+          href: "/category/le-monde-fiori",
           title: "Collections Printemps",
           description: "Découvrez nos créations printanières"
         },
         {
-          href: "/category/le-monde-fiori/ete",
+          href: "/category/le-monde-fiori",
           title: "Collections Été",
           description: "Styles légers pour l'été"
         }
@@ -32,12 +32,12 @@ const MainNavbar = () => {
       title="Occasions"
       items={[
         {
-          href: "/category/le-monde-fiori/mariage",
+          href: "/category/le-monde-fiori",
           title: "Marriage",
           description: "Collections élégantes pour mariage"
         },
         {
-          href: "/category/le-monde-fiori/soiree",
+          href: "/category/le-monde-fiori",
           title: "Soirée",
           description: "Design festifs"
         }
@@ -52,27 +52,27 @@ const MainNavbar = () => {
       title="Pack Composé"
       items={[
         {
-          href: "/category/univers-cadeaux/pack-prestige",
+          href: "/category/univers-cadeaux",
           title: "Pack Prestige",
           description: "Notre collection prestige"
         },
         {
-          href: "/category/univers-cadeaux/pack-premium",
+          href: "/category/univers-cadeaux",
           title: "Pack Premium",
           description: "Collection premium"
         },
         {
-          href: "/category/univers-cadeaux/pack-trio",
+          href: "/category/univers-cadeaux",
           title: "Pack Trio",
           description: "Ensemble de trois pièces"
         },
         {
-          href: "/category/univers-cadeaux/pack-duo",
+          href: "/category/univers-cadeaux",
           title: "Pack Duo",
           description: "Ensemble de deux pièces"
         },
         {
-          href: "/category/univers-cadeaux/pack-mini-duo",
+          href: "/category/univers-cadeaux",
           title: "Pack Mini Duo",
           description: "Petit ensemble duo"
         }
@@ -82,7 +82,7 @@ const MainNavbar = () => {
       title="Pack Mono"
       items={[
         {
-          href: "/category/univers-cadeaux/pack-mono",
+          href: "/category/univers-cadeaux",
           title: "Pack Mono",
           description: "Pièce unique"
         }
@@ -97,27 +97,27 @@ const MainNavbar = () => {
       title="Homme"
       items={[
         {
-          href: "/category/pret-a-porter/homme/costumes",
+          href: "/category/pret-a-porter",
           title: "Costumes",
           description: "Costumes élégants"
         },
         {
-          href: "/category/pret-a-porter/homme/blazers",
+          href: "/category/pret-a-porter",
           title: "Blazers",
           description: "Blazers raffinés"
         },
         {
-          href: "/category/pret-a-porter/homme/chemises",
+          href: "/category/pret-a-porter",
           title: "Chemises",
           description: "Chemises classiques"
         },
         {
-          href: "/category/pret-a-porter/homme/pulls",
+          href: "/category/pret-a-porter",
           title: "Pulls",
           description: "Pulls confortables"
         },
         {
-          href: "/category/pret-a-porter/homme/pantalons",
+          href: "/category/pret-a-porter",
           title: "Pantalons",
           description: "Pantalons élégants"
         }
@@ -127,17 +127,17 @@ const MainNavbar = () => {
       title="Femme"
       items={[
         {
-          href: "/category/pret-a-porter/femme/chemises",
+          href: "/category/pret-a-porter",
           title: "Chemises",
           description: "Chemises féminines"
         },
         {
-          href: "/category/pret-a-porter/femme/robes",
+          href: "/category/pret-a-porter",
           title: "Robes",
           description: "Robes élégantes"
         },
         {
-          href: "/category/pret-a-porter/femme/vestes",
+          href: "/category/pret-a-porter",
           title: "Vestes/Manteaux",
           description: "Vestes et manteaux"
         }
@@ -152,59 +152,57 @@ const MainNavbar = () => {
       title="Homme"
       items={[
         {
-          href: "/category/accessoires/homme/portefeuilles",
+          href: "/category/accessoires",
           title: "Portefeuilles",
           description: "Portefeuilles élégants"
         },
         {
-          href: "/category/accessoires/homme/ceintures",
+          href: "/category/accessoires",
           title: "Ceintures",
           description: "Ceintures raffinées"
         },
         {
-          href: "/category/accessoires/homme/cravates",
+          href: "/category/accessoires",
           title: "Cravates",
           description: "Cravates élégantes"
         },
         {
-          href: "/category/accessoires/homme/mallettes",
+          href: "/category/accessoires",
           title: "Mallettes",
           description: "Mallettes professionnelles"
         },
         {
-          href: "/category/accessoires/homme/porte-cartes",
+          href: "/category/accessoires",
           title: "Porte-cartes",
           description: "Porte-cartes élégants"
         },
         {
-          href: "/category/accessoires/homme/porte-cles",
+          href: "/category/accessoires",
           title: "Porte-clés",
           description: "Porte-clés raffinés"
         },
         {
-          href: "/category/accessoires/homme/porte-cheques",
+          href: "/category/accessoires",
           title: "Porte-chèques",
           description: "Porte-chèques élégants"
         },
         {
-          href: "/category/accessoires/homme/porte-passeports",
+          href: "/category/accessoires",
           title: "Porte-passeports",
           description: "Porte-passeports raffinés"
         }
       ]}
     />
-
-    
     <SubMenuSection
       title="Femme"
       items={[
         {
-          href: "/category/accessoires/femme/sacs-main",
+          href: "/category/accessoires",
           title: "Sacs à main",
           description: "Sacs à main élégants"
         },
         {
-          href: "/category/accessoires/femme/bags",
+          href: "/category/accessoires",
           title: "Sacs",
           description: "Collection de sacs"
         }
@@ -219,59 +217,37 @@ const MainNavbar = () => {
       title="Homme"
       items={[
         {
-          href: "/category/accessoires/homme/portefeuilles",
+          href: "/category/sur-mesure",
           title: "Portefeuilles",
           description: "Portefeuilles élégants"
         },
         {
-          href: "/category/accessoires/homme/ceintures",
+          href: "/category/sur-mesure",
           title: "Ceintures",
           description: "Ceintures raffinées"
         },
         {
-          href: "/category/accessoires/homme/cravates",
+          href: "/category/sur-mesure",
           title: "Cravates",
           description: "Cravates élégantes"
         },
         {
-          href: "/category/accessoires/homme/mallettes",
+          href: "/category/sur-mesure",
           title: "Mallettes",
           description: "Mallettes professionnelles"
-        },
-        {
-          href: "/category/accessoires/homme/porte-cartes",
-          title: "Porte-cartes",
-          description: "Porte-cartes élégants"
-        },
-        {
-          href: "/category/accessoires/homme/porte-cles",
-          title: "Porte-clés",
-          description: "Porte-clés raffinés"
-        },
-        {
-          href: "/category/accessoires/homme/porte-cheques",
-          title: "Porte-chèques",
-          description: "Porte-chèques élégants"
-        },
-        {
-          href: "/category/accessoires/homme/porte-passeports",
-          title: "Porte-passeports",
-          description: "Porte-passeports raffinés"
         }
       ]}
     />
-
-    
     <SubMenuSection
       title="Femme"
       items={[
         {
-          href: "/category/accessoires/femme/sacs-main",
+          href: "/category/sur-mesure",
           title: "Sacs à main",
           description: "Sacs à main élégants"
         },
         {
-          href: "/category/accessoires/femme/bags",
+          href: "/category/sur-mesure",
           title: "Sacs",
           description: "Collection de sacs"
         }
@@ -286,27 +262,27 @@ const MainNavbar = () => {
       title="Homme"
       items={[
         {
-          href: "/category/outlet/homme/costumes",
+          href: "/category/outlet",
           title: "Costumes",
           description: "Costumes en promotion"
         },
         {
-          href: "/category/outlet/homme/blazers",
+          href: "/category/outlet",
           title: "Blazers",
           description: "Blazers en solde"
         },
         {
-          href: "/category/outlet/homme/chemises",
+          href: "/category/outlet",
           title: "Chemises",
           description: "Chemises en promotion"
         },
         {
-          href: "/category/outlet/homme/pulls",
+          href: "/category/outlet",
           title: "Pulls",
           description: "Pulls en solde"
         },
         {
-          href: "/category/outlet/homme/pantalons",
+          href: "/category/outlet",
           title: "Pantalons",
           description: "Pantalons en promotion"
         }
@@ -316,17 +292,17 @@ const MainNavbar = () => {
       title="Femme"
       items={[
         {
-          href: "/category/outlet/femme/chemises",
+          href: "/category/outlet",
           title: "Chemises",
           description: "Chemises en promotion"
         },
         {
-          href: "/category/outlet/femme/robes",
+          href: "/category/outlet",
           title: "Robes",
           description: "Robes en solde"
         },
         {
-          href: "/category/outlet/femme/vestes",
+          href: "/category/outlet",
           title: "Vestes/Manteaux",
           description: "Vestes et manteaux en promotion"
         }
