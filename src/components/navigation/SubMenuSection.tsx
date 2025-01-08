@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface SubMenuSectionProps {
   title: string;
@@ -11,20 +12,23 @@ interface SubMenuSectionProps {
 
 const ListItem = ({ href, title }: { href: string; title: string }) => (
   <li className="text-left text-black">
-    <a href={href} className="block text-sm hover:underline">
+    <Link 
+      to={href} 
+      className="block text-sm py-1 hover:underline"
+    >
       {title}
-    </a>
+    </Link>
   </li>
 );
 
 const SubMenuSection = ({ title, items }: SubMenuSectionProps) => {
   return (
-    <div>
-      <h4 className="text-lg font-medium leading-none mb-3 text-[#700100] text-left">{title}</h4>
-      <ul className="grid gap-1 pl-0"> 
-        {items.map((item) => (
+    <div className="mb-2">
+      <h4 className="text-lg font-medium leading-none mb-2 text-[#700100] text-left">{title}</h4>
+      <ul className="grid gap-0.5"> 
+        {items.map((item, index) => (
           <ListItem 
-            key={item.href}
+            key={`${item.href}-${index}`}
             href={item.href}
             title={item.title}
           />

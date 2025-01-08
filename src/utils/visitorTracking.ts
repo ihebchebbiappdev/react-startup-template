@@ -1,47 +1,61 @@
 import axios from 'axios';
 
-interface LocationData {
-  ip: string;
-  city: string;
-  country: string;
-}
+const API_URL = 'https://respizenmedical.com/fiori/track_visitor.php';
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 1000; // 1 second
+
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 interface VisitorData {
   page_visitors: string;
-  city_visitors: string;
-  country_visitors: string;
-  ip_visitors: string;
-  date_visitors: string;
 }
 
-export const trackVisitor = async (pageName: string): Promise<void> => {
+interface ApiResponse {
+  status: string;
+  message: string;
+  data?: {
+    ip: string;
+    city: string;
+    country: string;
+    page: string;
+    date: string;
+  };
+}
+
+export const trackVisitor = async (pageName: string, retryCount = 0): Promise<void> => {
   try {
     console.log('Starting visitor tracking for page:', pageName);
-    
-    const ipResponse = await axios.get('https://api.ipify.org?format=json');
-    const ip = ipResponse.data.ip;
-    console.log('Visitor IP obtained:', ip);
-    
-    const locationResponse = await axios.get(`https://ipinfo.io/${ip}/json`);
-    const locationData: LocationData = {
-      ip: ip,
-      city: locationResponse.data.city || 'Unknown',
-      country: locationResponse.data.country || 'Unknown'
-    };
-    console.log('Location data obtained:', locationData);
 
     const visitorData: VisitorData = {
-      page_visitors: pageName,
-      city_visitors: locationData.city,
-      country_visitors: locationData.country,
-      ip_visitors: locationData.ip,
-      date_visitors: new Date().toISOString().split('T')[0]
+      page_visitors: pageName
     };
-    
-    // Send tracking data
-    await axios.post('https://respizenmedical.com/fiori/trackvisitor.php', visitorData);
-    console.log('Visitor tracking data sent successfully');
+
+    console.log('Sending visitor data:', visitorData);
+
+    const response = await axios.post<ApiResponse>(API_URL, visitorData, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      timeout: 5000
+    });
+
+    console.log('Tracking response:', response.data);
+
+    if (response.data.status === 'success') {
+      console.log('Visitor tracking successful:', response.data);
+    } else {
+      throw new Error(response.data.message || 'Unknown error occurred');
+    }
   } catch (error) {
     console.error('Error tracking visitor:', error);
+
+    if (retryCount < MAX_RETRIES) {
+      console.log(`Retrying... Attempt ${retryCount + 1} of ${MAX_RETRIES}`);
+      await delay(RETRY_DELAY * (retryCount + 1));
+      return trackVisitor(pageName, retryCount + 1);
+    }
+
+    console.error('Failed to track visitor after maximum retries');
   }
 };
