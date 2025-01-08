@@ -198,23 +198,25 @@ const ProductDetailPage = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <span className="text-base font-semibold text-gray-900">Quantité</span>
-                  <div className="flex items-center gap-2 bg-gray-50 rounded-lg p-1 w-fit">
-                    <button
-                      onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                      className="p-1 hover:text-[#700100] transition-colors rounded-md hover:bg-white"
-                    >
-                      -
-                    </button>
-                    <span className="w-8 text-center font-medium text-gray-900">{quantity}</span>
-                    <button
-                      onClick={() => setQuantity(q => q + 1)}
-                      className="p-1 hover:text-[#700100] transition-colors rounded-md hover:bg-white"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
+  <span className="text-base font-semibold text-gray-900">Quantité</span>
+  <div className="flex items-center gap-2 bg-gray-50 rounded-lg p-1 w-fit">
+    <button
+      onClick={() => setQuantity(q => Math.max(1, q - 1))}
+      className="p-1 rounded-md text-black text-lg"
+      style={{ fontSize: '110%' }} // Increase font size by 20%
+    >
+      -
+    </button>
+    <span className="w-8 text-center font-medium text-gray-900">{quantity}</span>
+    <button
+      onClick={() => setQuantity(q => q + 1)}
+      className="p-1 rounded-md text-black text-lg"
+      style={{ fontSize: '110%' }} // Increase font size by 20%
+    >
+      +
+    </button>
+  </div>
+</div>
 
                 {product.itemgroup_product === 'chemises' && (
                   <div className="space-y-2">
